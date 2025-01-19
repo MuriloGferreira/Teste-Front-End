@@ -38,6 +38,8 @@ const ProductCarousel = () => {
           slidesToShow: 2,
           slidesToScroll: 2,
           arrows: false,
+          // autoplay: true,
+          autoplaySpeed: 3000,
         },
       },
     ],
@@ -91,7 +93,7 @@ const ProductCarousel = () => {
                   : "-"}
               </span>
 
-              <button className="buy-button">Comprar</button>
+              <button className="buy-button">COMPRAR</button>
             </div>
 
           </div>
