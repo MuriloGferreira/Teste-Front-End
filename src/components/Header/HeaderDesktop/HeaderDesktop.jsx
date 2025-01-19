@@ -1,4 +1,3 @@
-// import React from 'react';
 import '../Header.scss';
 import corebiz_logo from "../../../assets/svgs/site-logo-corebiz-preto-cinza.svg"
 import user_icon from "../../../assets/svgs/user 1.svg"

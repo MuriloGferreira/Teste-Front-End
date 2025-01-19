@@ -10,6 +10,7 @@ function App() {
       <Header/>
       <BannerCarrousel/>
       <ProductCarousel/>
+      <ProductCarousel/>
     </>
   )
 }
