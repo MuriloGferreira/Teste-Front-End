@@ -1,7 +1,7 @@
 import './App.css'
-
-import BannerCarrousel from './components/BannerCarousel/BannerCarousel'
 import Header from './components/Header/index'
+import BannerCarrousel from './components/BannerCarousel/BannerCarousel'
+import ProductCarousel from './components/ProductCarousel/ProductCarousel'
 
 function App() {
 
@@ -9,6 +9,7 @@ function App() {
     <> 
       <Header/>
       <BannerCarrousel/>
+      <ProductCarousel/>
     </>
   )
 }
