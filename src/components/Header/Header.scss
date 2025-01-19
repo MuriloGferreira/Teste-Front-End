@@ -1,0 +1,130 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+
+  &__mobile,
+  &__desktop {
+
+    width: 100%;
+    justify-items: center;
+
+    @media (max-width: 768px) {
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .subcontainer {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+  }
+
+  .container {
+    max-width: 1300px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .subcontainer {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+
+  &__logo {
+
+    img {
+      @media (max-width: 768px) {
+        width: 109px;
+        height: 25px;
+      }
+    }
+  }
+
+  &__search {
+    margin: 0 1rem;
+    position: relative;
+    width: 100%;
+    max-width: 712px;
+    align-self: center;
+
+    @media (max-width: 768px) {
+      margin: 0;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 0;
+      bottom: 5px;
+    }
+
+    &-input {
+      width: 100%;
+      padding: 1px;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      font-size: 1rem;
+      font-family: "Nunito";
+    }
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+
+    .cart,
+    .account {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background: none;
+      border: none;
+
+      .user-icon {
+        padding: 5px;
+      }
+
+      p {
+        font-family: "Nunito";
+        font-size: 13px;
+        min-width: 72px;
+      }
+    }
+
+    &__icon {
+      margin-left: 1rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        color: #007bff;
+      }
+
+      i {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
