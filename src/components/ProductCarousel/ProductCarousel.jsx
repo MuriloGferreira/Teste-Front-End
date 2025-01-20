@@ -12,7 +12,6 @@ import { fetchProducts } from "../../data/product";
 const ProductCarousel = () => {
 
   const {
-    // getItemQuantity,
     increaseCartQuantity,
   } = useShoppingCart()
 
