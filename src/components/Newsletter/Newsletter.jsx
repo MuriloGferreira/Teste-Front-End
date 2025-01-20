@@ -40,7 +40,7 @@ const Newsletter = () => {
     };
 
     return (
-        <div className="newsletter">
+        <section className="newsletter">
             {isSubmitted ? (
                 <div className="success-message">
                     <h1>Seu e-mail foi cadastrado com sucesso!</h1>
@@ -78,7 +78,7 @@ const Newsletter = () => {
                     </div>
                 </form>
             )}
-        </div>
+        </section>
     );
 };
 

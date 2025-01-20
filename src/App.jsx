@@ -3,6 +3,7 @@ import Header from './components/Header/index'
 import BannerCarrousel from './components/BannerCarousel/BannerCarousel'
 import ProductCarousel from './components/ProductCarousel/ProductCarousel'
 import Newsletter from './components/Newsletter/Newsletter'
+import Footer from './components/Footer/Footer'
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
       <BannerCarrousel/>
       <ProductCarousel/>
       <Newsletter/>
-      <ProductCarousel/>
+      <Footer/>
     </>
   )
 }

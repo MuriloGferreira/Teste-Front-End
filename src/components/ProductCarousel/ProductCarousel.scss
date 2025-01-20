@@ -4,6 +4,10 @@
   width: 100%;
   margin: 0 auto;
 
+  @media (max-width: 768px) {
+    margin: 25px 0 50px;
+  }
+
   .slick-prev {
     background-image: none;
 
@@ -27,7 +31,24 @@
       height: 22px;
       display: flex;
     }
+  }
 
+  .slick-dots {
+    bottom: -25px;
+
+    li {
+      margin: 0;
+
+      button:before {
+        font-size: 10px;
+        color: #BDBDBD;
+        opacity: 1;
+      }
+
+      &.slick-active button:before {
+        color: #F8475F;
+      }
+    }
   }
 
   .product-carousel-title {
