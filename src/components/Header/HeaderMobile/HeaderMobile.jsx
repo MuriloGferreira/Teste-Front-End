@@ -26,7 +26,6 @@ const Header = () => {
                     <div className="header__icons">
                         <button className="cart" aria-label="Minicart" onClick={openCart}>
                             <img src={cart_icon} className="cart-icon" alt="Cart Icon" />
-                            <img src={cart_icon} className="cart-icon" alt="Cart Icon" />
                             {cartQuantity > 0 && (
                                 <span>{cartQuantity}</span>
                             )}

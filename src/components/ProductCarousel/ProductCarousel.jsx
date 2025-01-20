@@ -65,6 +65,7 @@ const ProductCarousel = () => {
               src={product.imageUrl}
               alt={product.productName}
               className="product-image"
+              loading="lazy"
             />
 
             <div className="product-info">
