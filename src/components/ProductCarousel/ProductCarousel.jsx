@@ -1,26 +1,29 @@
-
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "./ProductCarousel.scss";
 
+import { useShoppingCart } from "../../context/ShoppingCartContext";
+import { fetchProducts } from "../../data/product";
+
 import star_filed from "../../assets/svgs/star_filed.svg";
 import star_not_filed from "../../assets/svgs/star_not_filed.svg";
 
-import { useShoppingCart } from '../../context/ShoppingCartContext'
-import { fetchProducts } from "../../data/product";
-
 const ProductCarousel = () => {
-
-  const {
-    increaseCartQuantity,
-  } = useShoppingCart()
+  const { increaseCartQuantity } = useShoppingCart();
 
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getProducts = async () => {
-      const productsData = await fetchProducts();
-      setProducts(productsData);
+      try {
+        const productsData = await fetchProducts();
+        setProducts(productsData);
+      } catch (error) {
+        console.error("Erro ao buscar os produtos:", error);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
     getProducts();
@@ -54,7 +57,12 @@ const ProductCarousel = () => {
     <section className="product-carousel">
       <h1 className="product-carousel-title">Mais Vendidos</h1>
 
-      <Slider {...settings}>
+      {isLoading ? (
+        <div className="spinner-container">
+          <div className="spinner"></div>
+        </div>
+      ) : (
+        <Slider {...settings}>
         {products.map((product) => (
           <div key={product.productId} className="product-card">
             {product.listPrice && product.price < product.listPrice && (
@@ -103,6 +111,7 @@ const ProductCarousel = () => {
           </div>
         ))}
       </Slider>
+      )}
     </section>
   );
 };
