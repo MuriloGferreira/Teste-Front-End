@@ -1,27 +1,23 @@
+
 import { useEffect, useState } from "react";
-import axios from "axios";
 import Slider from "react-slick";
 import "./ProductCarousel.scss";
 
-import star_filed from "../../assets/svgs/star_filed.svg"
-import star_not_filed from "../../assets/svgs/star_not_filed.svg"
+import { fetchProducts } from "../../data/product";
+
+import star_filed from "../../assets/svgs/star_filed.svg";
+import star_not_filed from "../../assets/svgs/star_not_filed.svg";
 
 const ProductCarousel = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get(
-          "https://corebiz-test-server.onrender.com/api/v1/products"
-        );
-        setProducts(response.data);
-      } catch (error) {
-        console.error("Erro ao buscar os produtos:", error);
-      }
+    const getProducts = async () => {
+      const productsData = await fetchProducts();
+      setProducts(productsData);
     };
 
-    fetchProducts();
+    getProducts();
   }, []);
 
   const settings = {
@@ -55,7 +51,6 @@ const ProductCarousel = () => {
       <Slider {...settings}>
         {products.map((product) => (
           <div key={product.productId} className="product-card">
-
             {product.listPrice && product.price < product.listPrice && (
               <div className="product-flag">OFF</div>
             )}
@@ -84,19 +79,17 @@ const ProductCarousel = () => {
                 <span className="price">Por: R$ {formatPrice(product.price)}</span>
               </div>
               <span
-                className={`installments ${product.installments.length === 0 ? "not_visible" : ""
-                  }`}
+                className={`installments ${product.installments.length === 0 ? "not_visible" : ""}`}
               >
                 {product.installments.length > 0
                   ? `ou em ${product.installments[0].quantity}x de R$ ${formatPrice(
-                    product.installments[0].value
-                  )}`
+                      product.installments[0].value
+                    )}`
                   : "-"}
               </span>
 
               <button className="buy-button">COMPRAR</button>
             </div>
-
           </div>
         ))}
       </Slider>
