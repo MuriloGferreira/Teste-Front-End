@@ -1,6 +1,6 @@
 .footer {
     background-color: #000;
-    height: 245px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,6 +10,10 @@
 
     @media (max-width: 768px) {
         height: 386px;
+    }
+
+    @media (min-width: 768px) and (max-width: 1300px) {
+        padding: 0 90px;
     }
 
     .container__contact {

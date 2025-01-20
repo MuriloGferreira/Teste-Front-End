@@ -3,8 +3,12 @@ import corebiz_logo from "../../../assets/svgs/site-logo-corebiz-preto-cinza.svg
 import user_icon from "../../../assets/svgs/user 1.svg"
 import search_icon from "../../../assets/svgs/magnifying-glass 1.svg"
 import cart_icon from "../../../assets/svgs/shopping-cart 1.svg"
+import { useShoppingCart } from '../../../context/ShoppingCartContext'
 
 const Header = () => {
+
+    const { cartQuantity, openCart } = useShoppingCart()
+
     return (
         <>
             <div className="header__desktop">
@@ -28,8 +32,11 @@ const Header = () => {
                                 <img src={user_icon} className="user-icon" alt="User Icon" />
                                 <p>Minha conta</p>
                             </button>
-                            <button className="cart" aria-label="Minicart">
+                            <button className="cart" aria-label="Minicart" onClick={openCart}>
                                 <img src={cart_icon} className="cart-icon" alt="Cart Icon" />
+                                {cartQuantity > 0 && (
+                                    <span>{cartQuantity}</span>
+                                )}
                             </button>
                         </div>
                     </div>

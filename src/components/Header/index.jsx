@@ -1,4 +1,3 @@
-
 import HeaderDesktop from './HeaderDesktop/HeaderDesktop';
 import HeaderMobile from './HeaderMobile/HeaderMobile';
 import './Header.scss';

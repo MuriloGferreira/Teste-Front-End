@@ -1,14 +1,16 @@
 import { createContext, useContext, useState } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-import Minicart from "../components/Minicart/Minicart";
+import Minicart from "../components/Minicart/index";
 
 const ShoppingCartContext = createContext({});
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useShoppingCart() {
   return useContext(ShoppingCartContext);
 }
 
-export function ShoppingCartProvider( children ) {
+// eslint-disable-next-line react/prop-types
+export function ShoppingCartProvider({ children }) { 
   const [isOpen, setIsOpen] = useState(false);
 
   const [cartItems, setCartItems] = useLocalStorage("shopping-cart", []);
@@ -77,7 +79,6 @@ export function ShoppingCartProvider( children ) {
       }}
     >
       {children}
-
       <Minicart isOpen={isOpen} />
     </ShoppingCartContext.Provider>
   );

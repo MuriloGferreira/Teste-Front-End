@@ -3,12 +3,19 @@ import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "./ProductCarousel.scss";
 
-import { fetchProducts } from "../../data/product";
-
 import star_filed from "../../assets/svgs/star_filed.svg";
 import star_not_filed from "../../assets/svgs/star_not_filed.svg";
 
+import { useShoppingCart } from '../../context/ShoppingCartContext'
+import { fetchProducts } from "../../data/product";
+
 const ProductCarousel = () => {
+
+  const {
+    // getItemQuantity,
+    increaseCartQuantity,
+  } = useShoppingCart()
+
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -83,12 +90,15 @@ const ProductCarousel = () => {
               >
                 {product.installments.length > 0
                   ? `ou em ${product.installments[0].quantity}x de R$ ${formatPrice(
-                      product.installments[0].value
-                    )}`
+                    product.installments[0].value
+                  )}`
                   : "-"}
               </span>
 
-              <button className="buy-button">COMPRAR</button>
+              <button className="buy-button" 
+                onClick={() => increaseCartQuantity(product.productId)}>
+                COMPRAR
+              </button>
             </div>
           </div>
         ))}

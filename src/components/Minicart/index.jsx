@@ -5,7 +5,8 @@ import closeIcon from "../../assets/svgs/closeIcon.svg";
 import "./Minicart.scss";
 import { useEffect, useState } from 'react';
 
-const Minicart = ( isOpen ) => {
+// eslint-disable-next-line react/prop-types
+const Minicart = ( { isOpen } ) => {
   const [products, setProducts] = useState([]);
   
   useEffect(() => {
@@ -40,8 +41,8 @@ const Minicart = ( isOpen ) => {
           <div className="valueTotalCart">
             {
               cartItems.reduce((total, cartItem) => {
-                const item = products.find(i => i.id === cartItem.id);
-                return total + (item?.price || 0) * cartItem.quantity;
+                const item = products.find(i => i.productId === cartItem.id);
+                return total + ((item?.price / 100) || 0) * cartItem.quantity;
               }, 0).toLocaleString("pt-BR", {
                 style: "currency",
                 currency: "BRL",
